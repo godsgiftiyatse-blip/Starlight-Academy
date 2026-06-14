@@ -1,292 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Starlight Academy | Building Future Leaders</title>
-<link rel="stylesheet" href="style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Starlight Academy | Excellence in Education</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Montserrat', sans-serif;
+    }
+
+    body{
+      background:#f5f7fb;
+      color:#1b1b1b;
+    }
+
+    /* TOP BAR */
+    .top-bar{
+      background:#0b1d3a;
+      color:#fff;
+      padding:8px 20px;
+      font-size:13px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    /* NAV */
+    header{
+      background:#ffffff;
+      box-shadow:0 2px 10px rgba(0,0,0,0.08);
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .nav-container{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 25px;
+    }
+
+    .logo{
+      font-size:22px;
+      font-weight:700;
+      color:#0b1d3a;
+    }
+
+    nav a{
+      margin:0 12px;
+      text-decoration:none;
+      color:#333;
+      font-weight:500;
+      font-size:14px;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#0b1d3a;
+    }
+
+    /* HERO */
+    .hero{
+      height:85vh;
+      background:linear-gradient(rgba(11,29,58,0.7), rgba(11,29,58,0.7)),
+      url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:#fff;
+      padding:20px;
+    }
+
+    .hero h1{
+      font-size:48px;
+      margin-bottom:15px;
+    }
+
+    .hero p{
+      font-size:18px;
+      max-width:600px;
+      margin-bottom:25px;
+    }
+
+    .btn{
+      padding:12px 25px;
+      background:#d4af37;
+      color:#fff;
+      border:none;
+      border-radius:5px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#b8962f;
+    }
+
+    /* STATS */
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+      gap:20px;
+      padding:50px 20px;
+      text-align:center;
+      background:#fff;
+    }
+
+    .stat-box h2{
+      font-size:32px;
+      color:#0b1d3a;
+    }
+
+    .stat-box p{
+      color:#555;
+    }
+
+    /* SECTIONS */
+    section{
+      padding:60px 20px;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    h2.section-title{
+      text-align:center;
+      margin-bottom:40px;
+      color:#0b1d3a;
+      font-size:30px;
+    }
+
+    /* ABOUT */
+    .about{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+      gap:30px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:10px;
+    }
+
+    /* CARDS */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:#fff;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.05);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    /* GALLERY */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+      gap:10px;
+    }
+
+    .gallery img{
+      width:100%;
+      border-radius:10px;
+      height:200px;
+      object-fit:cover;
+    }
+
+    /* TESTIMONIAL */
+    .testimonial{
+      background:#0b1d3a;
+      color:#fff;
+      padding:40px;
+      border-radius:10px;
+      text-align:center;
+    }
+
+    /* CTA */
+    .cta{
+      text-align:center;
+      background:#d4af37;
+      color:#fff;
+      padding:60px 20px;
+      border-radius:10px;
+    }
+
+    .cta h2{
+      margin-bottom:15px;
+    }
+
+    /* FOOTER */
+    footer{
+      background:#0b1d3a;
+      color:#fff;
+      padding:40px 20px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+      gap:20px;
+    }
+
+    footer a{
+      color:#ccc;
+      text-decoration:none;
+      display:block;
+      margin:5px 0;
+      font-size:14px;
+    }
+
+    footer a:hover{
+      color:#fff;
+    }
+
+    .copyright{
+      text-align:center;
+      margin-top:20px;
+      font-size:13px;
+      color:#aaa;
+    }
+
+  </style>
 </head>
 
 <body>
 
-<header>
-<div class="container">
-
-<div class="logo">
-Starlight Academy
-</div>
-
-<nav>
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#programs">Programs</a>
-<a href="#facilities">Facilities</a>
-<a href="#gallery">Gallery</a>
-<a href="#admission">Admission</a>
-<a href="#contact">Contact</a>
-</nav>
-
-</div>
-</header>
-
-<section class="hero" id="home">
-
-<div class="hero-content">
-
-<h1>Building Future Leaders For Tomorrow</h1>
-
-<p>
-Providing world-class education that nurtures excellence,
-innovation and character.
-</p>
-
-<div class="hero-buttons">
-
-<a href="#admission" class="btn">
-Apply Now
-</a>
-
-<a href="#about" class="btn-secondary">
-Learn More
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="stats">
-
-<div class="stat">
-<h2 id="students">500+</h2>
-<p>Students</p>
-</div>
-
-<div class="stat">
-<h2 id="teachers">50+</h2>
-<p>Teachers</p>
-</div>
-
-<div class="stat">
-<h2 id="success">98%</h2>
-<p>Success Rate</p>
-</div>
-
-<div class="stat">
-<h2 id="years">15+</h2>
-<p>Years Excellence</p>
-</div>
-
-</section>
-
-<section id="about" class="container">
-
-<h2>About Our School</h2>
-
-<p class="center">
-Starlight Academy is committed to academic excellence,
-moral development and innovation. We provide a safe,
-inclusive and inspiring environment where students thrive.
-</p>
-
-</section>
-
-<section class="principal-section">
-
-<div class="container principal-grid">
-
-<div class="principal-image">
-<img src="https://via.placeholder.com/400x450" alt="Principal">
-</div>
-
-<div class="principal-text">
-
-<h2>Principal's Message</h2>
-
-<p>
-Welcome to Starlight Academy.
-Our mission is to inspire students to become
-lifelong learners, responsible citizens and future leaders.
-We combine academic excellence with character development
-to prepare every child for success.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="programs" class="container">
-
-<h2>Academic Programs</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Nursery School</h3>
-<p>Building strong educational foundations.</p>
-</div>
-
-<div class="card">
-<h3>Primary School</h3>
-<p>Developing creativity and confidence.</p>
-</div>
-
-<div class="card">
-<h3>Junior Secondary</h3>
-<p>Preparing students for future success.</p>
-</div>
-
-<div class="card">
-<h3>Senior Secondary</h3>
-<p>Academic excellence and leadership training.</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="facilities" class="container">
-
-<h2>School Facilities</h2>
-
-<div class="grid">
-
-<div class="card">ICT Laboratory</div>
-<div class="card">Science Laboratory</div>
-<div class="card">Library</div>
-<div class="card">School Bus</div>
-<div class="card">Sports Complex</div>
-<div class="card">Smart Classrooms</div>
-
-</div>
-
-</section>
-
-<section id="gallery" class="container">
-
-<h2>School Gallery</h2>
-
-<div class="grid">
-
-<div class="gallery-item">School Building</div>
-<div class="gallery-item">Science Lab</div>
-<div class="gallery-item">Sports Day</div>
-<div class="gallery-item">Library</div>
-<div class="gallery-item">Graduation</div>
-<div class="gallery-item">School Event</div>
-
-</div>
-
-</section>
-
-<section class="container">
-
-<h2>Latest News & Events</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>2026 Admission Open</h3>
-<p>Applications are now being accepted.</p>
-</div>
-
-<div class="card">
-<h3>Science Fair</h3>
-<p>Students showcase innovation and creativity.</p>
-</div>
-
-<div class="card">
-<h3>Inter-House Sports</h3>
-<p>Annual sports competition coming soon.</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="container">
-
-<h2>What Parents Say</h2>
-
-<div class="grid">
-
-<div class="card">
-★★★★★
-<p>Excellent learning environment.</p>
-</div>
-
-<div class="card">
-★★★★★
-<p>Dedicated teachers and staff.</p>
-</div>
-
-<div class="card">
-★★★★★
-<p>One of the best schools around.</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="admission" class="container">
-
-<h2>Admission Application</h2>
-
-<form id="admissionForm">
-
-<input type="text" id="student" placeholder="Student Name" required>
-
-<input type="email" id="email" placeholder="Parent Email" required>
-
-<input type="tel" id="phone" placeholder="Phone Number" required>
-
-<textarea id="message" placeholder="Additional Information"></textarea>
-
-<button type="submit">
-Apply via WhatsApp
-</button>
-
-</form>
-
-</section>
-
-<section id="contact" class="container">
-
-<h2>Contact Us</h2>
-
-<p>📍 Orerokpe, Delta State</p>
-<p>📞 +234 800 000 0000</p>
-<p>✉️ info@starlightacademy.com</p>
-
-<div class="map-placeholder">
-Google Maps Location Here
-</div>
-
-</section>
-
-<footer>
-
-<h3>Starlight Academy</h3>
-
-<p>
-Building Future Leaders Through Excellence,
-Innovation and Character.
-</p>
-
-<p>
-© 2026 Starlight Academy. All Rights Reserved.
-</p>
-
-</footer>
-
-<script src="script.js"></script>
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div>📍 Excellence in Education • Lagos, Nigeria</div>
+    <div>📞 +234 XXX XXX XXXX | ✉ info@starlightacademy.com</div>
+  </div>
+
+  <!-- NAV -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">Starlight Academy</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="academics.html">Academics</a>
+        <a href="admissions.html">Admissions</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="news.html">News</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Shaping Future Leaders</h1>
+    <p>Starlight Academy delivers world-class British-style education focused on excellence, discipline, and innovation.</p>
+    <a href="admissions.html" class="btn">Apply Now</a>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat-box">
+      <h2>15+</h2>
+      <p>Years of Excellence</p>
+    </div>
+    <div class="stat-box">
+      <h2>1200+</h2>
+      <p>Students Enrolled</p>
+    </div>
+    <div class="stat-box">
+      <h2>98%</h2>
+      <p>University Admission Rate</p>
+    </div>
+    <div class="stat-box">
+      <h2>50+</h2>
+      <p>Expert Teachers</p>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section>
+    <h2 class="section-title">About Starlight Academy</h2>
+    <div class="about">
+      <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1000&q=80" alt="">
+      <div>
+        <p>
+          Starlight Academy is a premium learning institution committed to nurturing excellence,
+          leadership, and innovation in young minds. Our British-style curriculum ensures global standards
+          of education while maintaining strong moral values.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCIPAL -->
+  <section>
+    <h2 class="section-title">Principal's Message</h2>
+    <div class="card">
+      <p>
+        “At Starlight Academy, we believe every child is a star waiting to shine. Our mission is to
+        provide the guidance, discipline, and opportunities needed to help them reach their full potential.”
+      </p>
+      <br/>
+      <strong>- Principal, Starlight Academy</strong>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section>
+    <h2 class="section-title">Academic Programs</h2>
+    <div class="grid">
+      <div class="card"><h3>Nursery</h3><p>Early childhood foundation and learning development.</p></div>
+      <div class="card"><h3>Primary School</h3><p>Strong academic base with creativity and discipline.</p></div>
+      <div class="card"><h3>Secondary School</h3><p>Advanced subjects preparing students for university.</p></div>
+      <div class="card"><h3>Examination Prep</h3><p>WAEC, JAMB, and international exam preparation.</p></div>
+    </div>
+  </section>
+
+  <!-- FACILITIES -->
+  <section>
+    <h2 class="section-title">Our Facilities</h2>
+    <div class="grid">
+      <div class="card"><h3>Modern Labs</h3><p>Fully equipped science laboratories.</p></div>
+      <div class="card"><h3>Library</h3><p>Digital and physical learning resources.</p></div>
+      <div class="card"><h3>Sports Complex</h3><p>Indoor and outdoor sporting facilities.</p></div>
+      <div class="card"><h3>ICT Center</h3><p>Computer-based learning environment.</p></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section>
+    <h2 class="section-title">School Gallery</h2>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80">
+      <img src="https://images.unsplash.com/photo-1588072432893-7b4c0b7c2d0b?auto=format&fit=crop&w=800&q=80">
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80">
+      <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80">
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section>
+    <h2 class="section-title">Latest News</h2>
+    <div class="grid">
+      <div class="card"><h3>Admission Open</h3><p>2026/2027 academic session now open.</p></div>
+      <div class="card"><h3>Sports Day</h3><p>Annual inter-house sports competition announced.</p></div>
+      <div class="card"><h3>Academic Excellence</h3><p>Students achieve record WAEC results.</p></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section>
+    <div class="testimonial">
+      <p>"Starlight Academy has transformed my child’s confidence and academic performance."</p>
+      <strong>- Parent Review</strong>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="cta">
+      <h2>Join Starlight Academy Today</h2>
+      <p>Secure your child’s future with world-class education.</p>
+      <br/>
+      <a href="admissions.html" class="btn">Apply Now</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>Starlight Academy</h3>
+        <p>Excellence in British-style education.</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="about.html">About</a>
+        <a href="academics.html">Academics</a>
+        <a href="admissions.html">Admissions</a>
+      </div>
+
+      <div>
+        <h4>Support</h4>
+        <a href="contact.html">Contact</a>
+        <a href="news.html">News</a>
+        <a href="gallery.html">Gallery</a>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2026 Starlight Academy. All Rights Reserved.
+    </div>
+  </footer>
 
 </body>
 </html>
