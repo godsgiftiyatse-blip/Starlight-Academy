@@ -4,10 +4,32 @@ document.getElementById("admissionForm")
     e.preventDefault();
 
     const student =
-    document.getElementById("studentName").value;
+    document.getElementById("student").value;
+
+    const email =
+    document.getElementById("email").value;
+
+    const phone =
+    document.getElementById("phone").value;
+
+    const message =
+    document.getElementById("message").value;
+
+    const text =
+`New Admission Request
+
+Student: ${student}
+
+Parent Email: ${email}
+
+Phone: ${phone}
+
+Message: ${message}`;
 
     alert(
-        "Application received for " + student
+        "Application submitted successfully!"
     );
+
+    console.log(text);
 
 });
