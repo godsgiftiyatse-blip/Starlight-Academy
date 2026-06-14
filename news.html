@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>News | Starlight Academy</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Montserrat', sans-serif;
+    }
+
+    body{
+      background:#f5f7fb;
+      color:#1b1b1b;
+    }
+
+    /* TOP BAR */
+    .top-bar{
+      background:#0b1d3a;
+      color:#fff;
+      padding:8px 20px;
+      display:flex;
+      justify-content:space-between;
+      font-size:13px;
+    }
+
+    header{
+      background:#fff;
+      box-shadow:0 2px 10px rgba(0,0,0,0.08);
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .nav-container{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 25px;
+    }
+
+    .logo{
+      font-size:22px;
+      font-weight:700;
+      color:#0b1d3a;
+    }
+
+    nav a{
+      margin:0 12px;
+      text-decoration:none;
+      color:#333;
+      font-weight:500;
+      font-size:14px;
+    }
+
+    nav a:hover{
+      color:#0b1d3a;
+    }
+
+    /* HERO */
+    .hero{
+      background:linear-gradient(rgba(11,29,58,0.75), rgba(11,29,58,0.75)),
+      url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1600&q=80');
+      height:40vh;
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      color:#fff;
+      text-align:center;
+      padding:20px;
+    }
+
+    .hero h1{
+      font-size:42px;
+    }
+
+    section{
+      padding:60px 20px;
+      max-width:1100px;
+      margin:auto;
+    }
+
+    h2{
+      text-align:center;
+      color:#0b1d3a;
+      margin-bottom:30px;
+      font-size:28px;
+    }
+
+    .intro{
+      text-align:center;
+      max-width:800px;
+      margin:auto;
+      color:#444;
+      line-height:1.7;
+      margin-bottom:40px;
+    }
+
+    /* NEWS GRID */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:10px;
+      overflow:hidden;
+      box-shadow:0 5px 15px rgba(0,0,0,0.05);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    .card img{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:15px;
+    }
+
+    .date{
+      font-size:12px;
+      color:#888;
+      margin-bottom:5px;
+    }
+
+    .card h3{
+      color:#0b1d3a;
+      margin-bottom:10px;
+      font-size:18px;
+    }
+
+    .card p{
+      font-size:14px;
+      color:#555;
+      line-height:1.6;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:10px;
+      padding:8px 12px;
+      background:#0b1d3a;
+      color:#fff;
+      font-size:13px;
+      border-radius:5px;
+      text-decoration:none;
+    }
+
+    .btn:hover{
+      background:#142a52;
+    }
+
+    /* ANNOUNCEMENT */
+    .announcement{
+      background:#0b1d3a;
+      color:#fff;
+      padding:30px;
+      border-radius:10px;
+      text-align:center;
+      margin-top:40px;
+    }
+
+    footer{
+      background:#0b1d3a;
+      color:#fff;
+      padding:40px 20px;
+      margin-top:40px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+      gap:20px;
+    }
+
+    footer a{
+      color:#ccc;
+      text-decoration:none;
+      display:block;
+      margin:5px 0;
+      font-size:14px;
+    }
+
+    footer a:hover{
+      color:#fff;
+    }
+
+    .copyright{
+      text-align:center;
+      margin-top:20px;
+      font-size:13px;
+      color:#aaa;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div>📍 Starlight Academy • Lagos, Nigeria</div>
+    <div>📞 +234 XXX XXX XXXX</div>
+  </div>
+
+  <!-- NAV -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">Starlight Academy</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="academics.html">Academics</a>
+        <a href="admissions.html">Admissions</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="news.html">News</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>School News</h1>
+  </div>
+
+  <!-- INTRO -->
+  <section>
+    <h2>Latest Updates</h2>
+    <p class="intro">
+      Stay informed with the latest announcements, events, achievements, and updates from Starlight Academy.
+    </p>
+
+    <!-- NEWS GRID -->
+    <div class="grid">
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644">
+        <div class="card-content">
+          <div class="date">June 2026</div>
+          <h3>Admissions Now Open</h3>
+          <p>Applications for the 2026/2027 academic session are now officially open.</p>
+          <a href="admissions.html" class="btn">Read More</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655">
+        <div class="card-content">
+          <div class="date">May 2026</div>
+          <h3>Annual Sports Day</h3>
+          <p>Students participated in exciting inter-house sports competitions.</p>
+          <a href="gallery.html" class="btn">View Gallery</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350">
+        <div class="card-content">
+          <div class="date">April 2026</div>
+          <h3>Academic Excellence</h3>
+          <p>Our students achieved outstanding WAEC results this year.</p>
+          <a href="academics.html" class="btn">Learn More</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ANNOUNCEMENT -->
+    <div class="announcement">
+      <h2>Important Announcement</h2>
+      <p>
+        School resumes for the new term on September 2026. Parents are advised to complete registration early.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>Starlight Academy</h3>
+        <p>Excellence in education.</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="academics.html">Academics</a>
+      </div>
+
+      <div>
+        <h4>Support</h4>
+        <a href="contact.html">Contact</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="admissions.html">Admissions</a>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2026 Starlight Academy. All Rights Reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
