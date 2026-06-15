@@ -1,42 +1,78 @@
 // ===============================
-// STarlight Academy V4 PRO Script
-// Clean + Safe + Production Ready
+// STARLIGHT ACADEMY V4 PRO+ JS
 // ===============================
 
 
 // ===============================
-// SAFE ELEMENT CHECKER
+// MOBILE MENU (SAFE + CLEAN)
 // ===============================
-function exists(id) {
-    return document.getElementById(id) !== null;
-}
+const nav = document.querySelector("nav");
+const header = document.querySelector(".nav-container");
 
+if (nav && header) {
 
-// ===============================
-// ANIMATED COUNTERS (SAFE)
-// ===============================
-function animateCounter(id, target, suffix = "") {
+    const menuBtn = document.createElement("div");
+    menuBtn.innerHTML = "☰";
+    menuBtn.style.fontSize = "26px";
+    menuBtn.style.cursor = "pointer";
+    menuBtn.style.color = "#0b1d3a";
 
-    const element = document.getElementById(id);
-    if (!element) return; // prevent errors if missing
+    header.appendChild(menuBtn);
 
-    let count = 0;
-    const increment = target / 100;
+    let open = false;
 
-    function updateCounter() {
-        if (count < target) {
-            count += increment;
-            element.textContent = Math.floor(count) + suffix;
-            requestAnimationFrame(updateCounter);
+    function resizeMenu() {
+        if (window.innerWidth <= 768) {
+            nav.style.display = "none";
+            menuBtn.style.display = "block";
         } else {
-            element.textContent = target + suffix;
+            nav.style.display = "flex";
+            menuBtn.style.display = "none";
         }
     }
 
-    updateCounter();
+    resizeMenu();
+    window.addEventListener("resize", resizeMenu);
+
+    menuBtn.addEventListener("click", () => {
+        open = !open;
+
+        nav.style.display = open ? "flex" : "none";
+        nav.style.flexDirection = "column";
+        nav.style.position = "absolute";
+        nav.style.top = "70px";
+        nav.style.right = "20px";
+        nav.style.background = "#fff";
+        nav.style.padding = "15px";
+        nav.style.boxShadow = "0 10px 25px rgba(0,0,0,0.1)";
+        nav.style.borderRadius = "10px";
+    });
 }
 
-// Run counters only if they exist
+
+// ===============================
+// COUNTERS
+// ===============================
+function animateCounter(id, target, suffix = "") {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    let count = 0;
+    const speed = target / 100;
+
+    function update() {
+        count += speed;
+        if (count < target) {
+            el.textContent = Math.floor(count) + suffix;
+            requestAnimationFrame(update);
+        } else {
+            el.textContent = target + suffix;
+        }
+    }
+
+    update();
+}
+
 animateCounter("students", 500, "+");
 animateCounter("teachers", 50, "+");
 animateCounter("success", 98, "%");
@@ -44,98 +80,76 @@ animateCounter("years", 15, "+");
 
 
 // ===============================
-// WHATSAPP ADMISSION FORM (SAFE)
+// SCROLL ANIMATION
+// ===============================
+const elements = document.querySelectorAll("section, .card, .hero");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, {
+    threshold: 0.1
+});
+
+elements.forEach(el => {
+    el.classList.add("fade-in");
+    observer.observe(el);
+});
+
+
+// ===============================
+// WHATSAPP FORM
 // ===============================
 const form = document.getElementById("admissionForm");
 
 if (form) {
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", e => {
         e.preventDefault();
 
-        const student = document.getElementById("student")?.value || "N/A";
-        const email = document.getElementById("email")?.value || "N/A";
-        const phone = document.getElementById("phone")?.value || "N/A";
-        const message = document.getElementById("message")?.value || "N/A";
+        const student = document.getElementById("student")?.value || "";
+        const email = document.getElementById("email")?.value || "";
+        const phone = document.getElementById("phone")?.value || "";
+        const message = document.getElementById("message")?.value || "";
 
-        const whatsappMessage = `
-🎓 STARLIGHT ACADEMY ADMISSION REQUEST
+        const text = `
+🎓 STARLIGHT ACADEMY APPLICATION
 
-Student Name: ${student}
+Name: ${student}
 Email: ${email}
 Phone: ${phone}
-
-Message:
-${message}
+Message: ${message}
         `;
 
-        const whatsappNumber = "2348000000000"; // replace with real number
-
-        const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-
-        window.open(url, "_blank");
+        window.open(
+            `https://wa.me/2348000000000?text=${encodeURIComponent(text)}`,
+            "_blank"
+        );
     });
 }
 
 
 // ===============================
-// STICKY HEADER SHADOW (SAFE)
+// FAQ TOGGLE
 // ===============================
-window.addEventListener("scroll", function () {
+document.querySelectorAll(".faq-item").forEach(item => {
+    item.addEventListener("click", () => {
+        item.classList.toggle("active");
+    });
+});
 
+
+// ===============================
+// HEADER SHADOW
+// ===============================
+window.addEventListener("scroll", () => {
     const header = document.querySelector("header");
     if (!header) return;
 
-    if (window.scrollY > 50) {
-        header.style.boxShadow = "0 5px 20px rgba(0,0,0,0.15)";
-    } else {
-        header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
-    }
-
-});
-
-
-// ===============================
-// GALLERY HOVER (FIXED)
-// ===============================
-const galleryItems = document.querySelectorAll(".gallery img");
-
-if (galleryItems.length > 0) {
-    galleryItems.forEach(item => {
-
-        item.style.transition = "0.3s ease";
-
-        item.addEventListener("mouseenter", () => {
-            item.style.transform = "scale(1.05)";
-        });
-
-        item.addEventListener("mouseleave", () => {
-            item.style.transform = "scale(1)";
-        });
-
-    });
-}
-
-
-// ===============================
-// SMOOTH SCROLL (GLOBAL)
-// ===============================
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-    });
-});
-
-
-// ===============================
-// LOAD LOG
-// ===============================
-window.addEventListener("load", () => {
-    console.log("✅ Starlight Academy V4 PRO Loaded Successfully");
+    header.style.boxShadow =
+        window.scrollY > 50
+            ? "0 5px 20px rgba(0,0,0,0.15)"
+            : "0 2px 10px rgba(0,0,0,0.1)";
 });
